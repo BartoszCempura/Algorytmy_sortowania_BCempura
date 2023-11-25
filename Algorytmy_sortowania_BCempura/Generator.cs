@@ -28,7 +28,7 @@ namespace Algorytmy_sortowania_BCempura
             for (int i = 0; i < size; ++i)
 
             {
-            array[i] = random.Next(); ;
+            array[i] = random.Next(0, 1001);
             }
 
         }
@@ -36,17 +36,37 @@ namespace Algorytmy_sortowania_BCempura
         {
             Random ascending = new Random();
 
-            asc = ascending.Next();
+            asc = ascending.Next(0, 20);
 
             for (int i = 0; i < size; ++i)
-
             {
                 array[i] = asc;
-                asc++;
+                asc = ascending.Next(asc,asc+20);
 
             }
-            
 
+           
+        }
+
+        public void Descending()
+        {
+            Random descending = new Random();
+
+            asc = descending.Next(0, 20);
+
+            for (int i = 0; i < size; ++i)
+            {
+                array[i] = asc;
+                asc = descending.Next(asc, asc + 20);
+
+            }
+
+            for (int i = 0; i < size; ++i)
+            {
+                array[size-i] = asc;
+                asc = descending.Next(asc, asc + 20);
+
+            }
 
         }
 

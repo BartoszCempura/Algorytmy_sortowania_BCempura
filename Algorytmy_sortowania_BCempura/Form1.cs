@@ -85,6 +85,15 @@ namespace Algorytmy_sortowania_BCempura
 
             array = generator1.GetArray();
             DisplayValues();
+        }    
+        private void Descending_Click(object sender, EventArgs e)
+        {
+            int size = (int)numericUpDown1.Value;
+            Generator generator2 = new Generator(size);
+            generator2.Descending();
+
+            array = generator2.GetArray();
+            DisplayValues();
         }
     }
 }
