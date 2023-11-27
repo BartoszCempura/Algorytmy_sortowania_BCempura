@@ -53,11 +53,14 @@ namespace Algorytmy_sortowania_BCempura
 
         private void button1_Click(object sender, EventArgs e)
         {
- 
-            BubbleSort bubbleSort = new BubbleSort();
-            bubbleSort.Sort(array);
 
-            // Dodatkowa logika lub wyświetlanie rezultatów
+            //już działają oba - teraz rozkmiń jak to ma być dalej ułożone i jak połaczyć to z checklistbox
+            SelectionSort selectionSort = new SelectionSort();
+            selectionSort.Sort(array);
+             //BubbleSort bubbleSort = new BubbleSort();
+              //bubbleSort.Sort(array);
+
+           
             DisplayValues();
 
         }

@@ -50,24 +50,13 @@ namespace Algorytmy_sortowania_BCempura
 
         public void Descending()
         {
-            Random descending = new Random();
-
-            asc = descending.Next(0, 20);
+            int max = size;
 
             for (int i = 0; i < size; ++i)
             {
-                array[i] = asc;
-                asc = descending.Next(asc, asc + 20);
-
-            }
-
-            for (int i = 0; i < size; ++i)
-            {
-                array[size-i] = asc;
-                asc = descending.Next(asc, asc + 20);
-
-            }
-
+                array[i] = max;
+                max--;
+            }          
         }
 
 
