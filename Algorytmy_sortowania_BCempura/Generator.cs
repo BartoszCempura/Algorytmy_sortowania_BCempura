@@ -13,11 +13,11 @@ namespace Algorytmy_sortowania_BCempura
 
             private int size;
             private int[] array;
-        private int asc = 0;
+            private int asc = 0;
 
-            public Generator(int size)
+            public Generator(int x)
             {
-                this.size = size;
+                this.size = x;
                 array = new int[size];
             }
 
