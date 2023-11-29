@@ -22,6 +22,8 @@ namespace Algorytmy_sortowania_BCempura
         private bool useBubbleSort = false;
         private bool useSelectionSort = false;
         private bool useQuickSort = false;
+        private bool useInsertionSort = false;
+        private bool useMergeSort = false;
 
 
         public Form1()
@@ -36,16 +38,18 @@ namespace Algorytmy_sortowania_BCempura
             checkedListBox1.Items.Add("BubbleSort");
             checkedListBox1.Items.Add("SelectionSort");
             checkedListBox1.Items.Add("QuickSort");
-           // checkedListBox1.Items.Add("Checkbox 4");
-            //checkedListBox1.Items.Add("Checkbox 5");
+            checkedListBox1.Items.Add("InsertionSort");
+            checkedListBox1.Items.Add("MergeSort");
         }
- 
+
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             useBubbleSort = checkedListBox1.GetItemChecked(0);
             useSelectionSort = checkedListBox1.GetItemChecked(1);
             useQuickSort = checkedListBox1.GetItemChecked(2);
+            useInsertionSort = checkedListBox1.GetItemChecked(3);
+            useMergeSort = checkedListBox1.GetItemChecked(4);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,6 +110,37 @@ namespace Algorytmy_sortowania_BCempura
                                 "\nWartość ostatnia to " + tmp3[tmp3.Length - 1] +
                                 "\nCzas trwania: " + stopwatch3.Elapsed);
             }
+            if (useInsertionSort)
+            {
+                InsertionSort insertionSort = new InsertionSort();
+                int[] tmp4 = new int[array.Length];
+                Array.Copy(array, tmp4, array.Length);
+                Stopwatch stopwatch4 = new Stopwatch();
+                stopwatch4.Start();
+                insertionSort.Sort(tmp4);
+                stopwatch4.Stop();
+                MessageBox.Show("InsertionSort Zakończony." +
+                                "\nWartość pierwsza to " + tmp4[0] +
+                                "\nWartość ostatnia to " + tmp4[tmp4.Length - 1] +
+                                "\nCzas trwania: " + stopwatch4.Elapsed);
+            }
+
+            if (useMergeSort)
+            {
+                MergeSort mergeSort = new MergeSort();
+                int[] tmp5 = new int[array.Length];
+                Array.Copy(array, tmp5, array.Length);
+                Stopwatch stopwatch5 = new Stopwatch();
+                stopwatch5.Start();
+                mergeSort.Sort(tmp5);
+                stopwatch5.Stop();
+                MessageBox.Show("MergeSort Zakończony." +
+                                "\nWartość pierwsza to " + tmp5[0] +
+                                "\nWartość ostatnia to " + tmp5[tmp5.Length - 1] +
+                                "\nCzas trwania: " + stopwatch5.Elapsed);
+            }
+
+
 
             DisplayValues();
 
