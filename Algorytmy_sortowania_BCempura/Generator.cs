@@ -14,6 +14,7 @@ namespace Algorytmy_sortowania_BCempura
             private int size;
             private int[] array;
             private int asc = 0;
+            private int dsc = 0;
 
             public Generator(int x)
             {
@@ -43,12 +44,25 @@ namespace Algorytmy_sortowania_BCempura
                 array[i] = asc;
                 asc = ascending.Next(asc,asc+20);
 
-            }
-
-           
+            }           
         }
 
         public void Descending()
+        {
+            Random descending = new Random();
+
+            dsc = descending.Next(0, 5);
+
+            for (int i = 0; i < size; ++i)
+            {
+                array[(size-1) - i] = dsc;
+                dsc = descending.Next(dsc, dsc + 5);
+
+            }
+        }
+        /*
+        //kod generuje wartości od size i co jeden w dół, powyżej jest bardziej losowy
+        public void Descending() 
         {
             int max = size;
 
@@ -58,7 +72,7 @@ namespace Algorytmy_sortowania_BCempura
                 max--;
             }          
         }
-
+*/
 
         public int[] GetArray()
         {

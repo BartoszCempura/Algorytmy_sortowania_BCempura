@@ -35,6 +35,8 @@ namespace Algorytmy_sortowania_BCempura
             }
 
         }
+
+        //ten kod się powtarza - nie powinno tak być - 
         public void Drukuj(ListBox listBox, int[] array)
         {
             listBox.Items.Clear();

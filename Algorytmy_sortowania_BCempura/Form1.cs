@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
+
+
 namespace Algorytmy_sortowania_BCempura
 {
     public partial class Form1 : Form
@@ -19,6 +21,7 @@ namespace Algorytmy_sortowania_BCempura
 
         private bool useBubbleSort = false;
         private bool useSelectionSort = false;
+        private bool useQuickSort = false;
 
 
         public Form1()
@@ -32,7 +35,7 @@ namespace Algorytmy_sortowania_BCempura
         {
             checkedListBox1.Items.Add("BubbleSort");
             checkedListBox1.Items.Add("SelectionSort");
-            //checkedListBox1.Items.Add("Checkbox 3");
+            checkedListBox1.Items.Add("QuickSort");
            // checkedListBox1.Items.Add("Checkbox 4");
             //checkedListBox1.Items.Add("Checkbox 5");
         }
@@ -42,6 +45,7 @@ namespace Algorytmy_sortowania_BCempura
         {
             useBubbleSort = checkedListBox1.GetItemChecked(0);
             useSelectionSort = checkedListBox1.GetItemChecked(1);
+            useQuickSort = checkedListBox1.GetItemChecked(2);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,14 +59,15 @@ namespace Algorytmy_sortowania_BCempura
             listBox1.Items.AddRange(array.Select(x => x.ToString()).ToArray());
         }
 
-
+        //każdy kod powinien być używany tylko raz. Nie powinny powielać się linnie kodu
         private void button1_Click(object sender, EventArgs e)
         {
             if (useBubbleSort)
             {
                 BubbleSort bubbleSort = new BubbleSort();
                 int[]tmp1 = new int[array.Length];
-                Array.Copy(array, tmp1, array.Length); 
+                //Array.Copy(array, tmp1, array.Length);
+                tmp1 = (int[])array.Clone(); //alternatywa dla kodu powyżej, działa dla dowolnych typów zmiennych ale trzeba rzutować 
                 Stopwatch stopwatch1 = new Stopwatch();
                 stopwatch1.Start();
                 bubbleSort.Sort(tmp1);
@@ -72,7 +77,7 @@ namespace Algorytmy_sortowania_BCempura
                                 "\nWartość ostatnia to " + tmp1[tmp1.Length-1] +
                                 "\nCzas trwania: " + stopwatch1.Elapsed);
             }
-            //sortowanie działa dla wartości do 100000
+            //sortowanie dla wartości powyżej 100k trwa bardzo długo ale nie ma potzreby tego obliczać
             if (useSelectionSort)
             {
                 SelectionSort selectionSort = new SelectionSort();
@@ -87,11 +92,21 @@ namespace Algorytmy_sortowania_BCempura
                                 "\nWartość ostatnia to " + tmp2[tmp2.Length - 1] +
                                 "\nCzas trwania: " + stopwatch2.Elapsed);
             }
-           
-            
-           
+            if (useQuickSort)
+            {
+                QuickSort quickSort = new QuickSort();
+                int[] tmp3 = new int[array.Length];
+                Array.Copy(array, tmp3, array.Length);
+                Stopwatch stopwatch3 = new Stopwatch();
+                stopwatch3.Start();
+                quickSort.Sort(tmp3, 0, tmp3.Length);
+                stopwatch3.Stop();
+                MessageBox.Show("SelectionSort Zakończony." +
+                                "\nWartość pierwsza to " + tmp3[0] +
+                                "\nWartość ostatnia to " + tmp3[tmp3.Length - 1] +
+                                "\nCzas trwania: " + stopwatch3.Elapsed);
+            }
 
-           
             DisplayValues();
 
         }

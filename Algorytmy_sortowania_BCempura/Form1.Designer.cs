@@ -41,7 +41,7 @@
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(53, 114);
+            this.checkedListBox1.Location = new System.Drawing.Point(23, 315);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
             this.checkedListBox1.TabIndex = 0;
@@ -50,15 +50,15 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(594, 12);
+            this.listBox1.Location = new System.Drawing.Point(42, 129);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(185, 173);
+            this.listBox1.Size = new System.Drawing.Size(84, 173);
             this.listBox1.TabIndex = 1;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // Sortuj
             // 
-            this.Sortuj.Location = new System.Drawing.Point(72, 214);
+            this.Sortuj.Location = new System.Drawing.Point(42, 415);
             this.Sortuj.Name = "Sortuj";
             this.Sortuj.Size = new System.Drawing.Size(75, 23);
             this.Sortuj.TabIndex = 2;
@@ -73,7 +73,7 @@
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(451, 287);
+            this.numericUpDown1.Location = new System.Drawing.Point(23, 12);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -86,7 +86,7 @@
             // 
             // Random
             // 
-            this.Random.Location = new System.Drawing.Point(472, 313);
+            this.Random.Location = new System.Drawing.Point(44, 38);
             this.Random.Name = "Random";
             this.Random.Size = new System.Drawing.Size(75, 23);
             this.Random.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             // Ascending
             // 
-            this.Ascending.Location = new System.Drawing.Point(472, 342);
+            this.Ascending.Location = new System.Drawing.Point(44, 67);
             this.Ascending.Name = "Ascending";
             this.Ascending.Size = new System.Drawing.Size(75, 23);
             this.Ascending.TabIndex = 6;
@@ -106,7 +106,7 @@
             // 
             // Descending
             // 
-            this.Descending.Location = new System.Drawing.Point(472, 371);
+            this.Descending.Location = new System.Drawing.Point(44, 96);
             this.Descending.Name = "Descending";
             this.Descending.Size = new System.Drawing.Size(75, 23);
             this.Descending.TabIndex = 8;
