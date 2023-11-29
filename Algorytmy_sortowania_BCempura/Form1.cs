@@ -99,9 +99,9 @@ namespace Algorytmy_sortowania_BCempura
                 Array.Copy(array, tmp3, array.Length);
                 Stopwatch stopwatch3 = new Stopwatch();
                 stopwatch3.Start();
-                quickSort.Sort(tmp3, 0, tmp3.Length);
+                quickSort.Sort(tmp3, 0, tmp3.Length-1);
                 stopwatch3.Stop();
-                MessageBox.Show("SelectionSort Zakończony." +
+                MessageBox.Show("QuickSort Zakończony." +
                                 "\nWartość pierwsza to " + tmp3[0] +
                                 "\nWartość ostatnia to " + tmp3[tmp3.Length - 1] +
                                 "\nCzas trwania: " + stopwatch3.Elapsed);
