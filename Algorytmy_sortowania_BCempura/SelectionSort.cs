@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Algorytmy_sortowania_BCempura
 {
-    internal class SelectionSort
+    internal class SelectionSort : ISort
     {
 
         public void Sort(int[] array)
@@ -35,19 +35,6 @@ namespace Algorytmy_sortowania_BCempura
             }
 
         }
-
-        //ten kod się powtarza - nie powinno tak być - 
-        public void Drukuj(ListBox listBox, int[] array)
-        {
-            listBox.Items.Clear();
-
-            foreach (var element in array)
-            {
-                listBox.Items.Add(element.ToString());
-            }
-
-        }
-
 
 
 

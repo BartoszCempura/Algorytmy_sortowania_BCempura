@@ -19,12 +19,6 @@ namespace Algorytmy_sortowania_BCempura
 
         private int[] array;
 
-        private bool useBubbleSort = false;
-        private bool useSelectionSort = false;
-        private bool useQuickSort = false;
-        private bool useInsertionSort = false;
-        private bool useMergeSort = false;
-
 
         public Form1()
         {
@@ -45,11 +39,7 @@ namespace Algorytmy_sortowania_BCempura
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            useBubbleSort = checkedListBox1.GetItemChecked(0);
-            useSelectionSort = checkedListBox1.GetItemChecked(1);
-            useQuickSort = checkedListBox1.GetItemChecked(2);
-            useInsertionSort = checkedListBox1.GetItemChecked(3);
-            useMergeSort = checkedListBox1.GetItemChecked(4);
+    
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,88 +53,56 @@ namespace Algorytmy_sortowania_BCempura
             listBox1.Items.AddRange(array.Select(x => x.ToString()).ToArray());
         }
 
-        //każdy kod powinien być używany tylko raz. Nie powinny powielać się linnie kodu
         private void button1_Click(object sender, EventArgs e)
         {
-            if (useBubbleSort)
+            List<ISort> selectedAlgorithms = new List<ISort>();
+
+            if (checkedListBox1.GetItemChecked(0))
             {
-                BubbleSort bubbleSort = new BubbleSort();
-                int[]tmp1 = new int[array.Length];
-                //Array.Copy(array, tmp1, array.Length);
-                tmp1 = (int[])array.Clone(); //alternatywa dla kodu powyżej, działa dla dowolnych typów zmiennych ale trzeba rzutować 
-                Stopwatch stopwatch1 = new Stopwatch();
-                stopwatch1.Start();
-                bubbleSort.Sort(tmp1);
-                stopwatch1.Stop();
-                MessageBox.Show("BubbleSort Zakończony." +
-                                "\nWartość pierwsza to "+ tmp1[0] +
-                                "\nWartość ostatnia to " + tmp1[tmp1.Length-1] +
-                                "\nCzas trwania: " + stopwatch1.Elapsed);
-            }
-            //sortowanie dla wartości powyżej 100k trwa bardzo długo ale nie ma potzreby tego obliczać
-            if (useSelectionSort)
-            {
-                SelectionSort selectionSort = new SelectionSort();
-                int[] tmp2 = new int[array.Length];
-                Array.Copy(array, tmp2, array.Length);
-                Stopwatch stopwatch2 = new Stopwatch();
-                stopwatch2.Start();
-                selectionSort.Sort(tmp2);
-                stopwatch2.Stop();
-                MessageBox.Show("SelectionSort Zakończony." +
-                                "\nWartość pierwsza to " + tmp2[0] +
-                                "\nWartość ostatnia to " + tmp2[tmp2.Length - 1] +
-                                "\nCzas trwania: " + stopwatch2.Elapsed);
-            }
-            if (useQuickSort)
-            {
-                QuickSort quickSort = new QuickSort();
-                int[] tmp3 = new int[array.Length];
-                Array.Copy(array, tmp3, array.Length);
-                Stopwatch stopwatch3 = new Stopwatch();
-                stopwatch3.Start();
-                quickSort.Sort(tmp3, 0, tmp3.Length-1);
-                stopwatch3.Stop();
-                MessageBox.Show("QuickSort Zakończony." +
-                                "\nWartość pierwsza to " + tmp3[0] +
-                                "\nWartość ostatnia to " + tmp3[tmp3.Length - 1] +
-                                "\nCzas trwania: " + stopwatch3.Elapsed);
-            }
-            if (useInsertionSort)
-            {
-                InsertionSort insertionSort = new InsertionSort();
-                int[] tmp4 = new int[array.Length];
-                Array.Copy(array, tmp4, array.Length);
-                Stopwatch stopwatch4 = new Stopwatch();
-                stopwatch4.Start();
-                insertionSort.Sort(tmp4);
-                stopwatch4.Stop();
-                MessageBox.Show("InsertionSort Zakończony." +
-                                "\nWartość pierwsza to " + tmp4[0] +
-                                "\nWartość ostatnia to " + tmp4[tmp4.Length - 1] +
-                                "\nCzas trwania: " + stopwatch4.Elapsed);
+                selectedAlgorithms.Add(new BubbleSort());
             }
 
-            if (useMergeSort)
+            if (checkedListBox1.GetItemChecked(1))
             {
-                MergeSort mergeSort = new MergeSort();
-                int[] tmp5 = new int[array.Length];
-                Array.Copy(array, tmp5, array.Length);
-                Stopwatch stopwatch5 = new Stopwatch();
-                stopwatch5.Start();
-                mergeSort.Sort(tmp5);
-                stopwatch5.Stop();
-                MessageBox.Show("MergeSort Zakończony." +
-                                "\nWartość pierwsza to " + tmp5[0] +
-                                "\nWartość ostatnia to " + tmp5[tmp5.Length - 1] +
-                                "\nCzas trwania: " + stopwatch5.Elapsed);
+                selectedAlgorithms.Add(new SelectionSort());
             }
 
+            if (checkedListBox1.GetItemChecked(2))
+            {
+                selectedAlgorithms.Add(new QuickSort());
+            }
 
+            if (checkedListBox1.GetItemChecked(3))
+            {
+                selectedAlgorithms.Add(new InsertionSort());
+            }
 
-            DisplayValues();
+            if (checkedListBox1.GetItemChecked(4))
+            {
+                selectedAlgorithms.Add(new MergeSort());
+            }
 
+            if (selectedAlgorithms.Count == 0)
+            {
+                MessageBox.Show("Wybierz przynajmniej jeden algorytm");
+                return;
+            }
+
+            foreach (var x in selectedAlgorithms)
+            {
+                int[] sortedArray = (int[])array.Clone();
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                x.Sort(sortedArray);
+                stopwatch.Stop();
+
+                MessageBox.Show($"{x.GetType().Name} Zakończony." +
+                                $"\nWartość pierwsza to {sortedArray[0]}" +
+                                $"\nWartość ostatnia to {sortedArray[sortedArray.Length - 1]}" +
+                                $"\nCzas trwania: {stopwatch.Elapsed}");
+            }
         }
+
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {

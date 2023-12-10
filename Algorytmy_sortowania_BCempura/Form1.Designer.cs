@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.Sortuj = new System.Windows.Forms.Button();
@@ -35,13 +38,15 @@
             this.Random = new System.Windows.Forms.Button();
             this.Ascending = new System.Windows.Forms.Button();
             this.Descending = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(23, 315);
+            this.checkedListBox1.Location = new System.Drawing.Point(27, 315);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 94);
             this.checkedListBox1.TabIndex = 0;
@@ -58,7 +63,7 @@
             // 
             // Sortuj
             // 
-            this.Sortuj.Location = new System.Drawing.Point(42, 415);
+            this.Sortuj.Location = new System.Drawing.Point(48, 415);
             this.Sortuj.Name = "Sortuj";
             this.Sortuj.Size = new System.Drawing.Size(75, 23);
             this.Sortuj.TabIndex = 2;
@@ -114,11 +119,28 @@
             this.Descending.UseVisualStyleBackColor = true;
             this.Descending.Click += new System.EventHandler(this.Descending_Click);
             // 
+            // chart1
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
+            this.chart1.Location = new System.Drawing.Point(286, 67);
+            this.chart1.Name = "chart1";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(342, 300);
+            this.chart1.TabIndex = 9;
+            this.chart1.Text = "chart1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.Descending);
             this.Controls.Add(this.Ascending);
             this.Controls.Add(this.Random);
@@ -129,6 +151,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -142,6 +165,7 @@
         private System.Windows.Forms.Button Random;
         private System.Windows.Forms.Button Ascending;
         private System.Windows.Forms.Button Descending;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

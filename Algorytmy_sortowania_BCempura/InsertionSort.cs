@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorytmy_sortowania_BCempura
 {
-    internal class InsertionSort
+    internal class InsertionSort : ISort
     {
        public void Sort(int[] array)
         {

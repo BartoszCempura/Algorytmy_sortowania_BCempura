@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorytmy_sortowania_BCempura
 {
-    internal class MergeSort
+    internal class MergeSort : ISort
     {
         private int[] arrayExtra;
         public void Sort(int[] array) 

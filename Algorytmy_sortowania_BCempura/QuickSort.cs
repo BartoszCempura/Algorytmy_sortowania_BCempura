@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorytmy_sortowania_BCempura
 {
-    internal class QuickSort
+    internal class QuickSort : IQuickSort
     {
         public void Sort(int[] array,int begin,int end) 
         {
@@ -43,6 +43,11 @@ namespace Algorytmy_sortowania_BCempura
             }
         }  
 
+public void Sort(int[] array) 
+        {
+            Sort(array, 0, array.Length - 1);
+        
+        }
 
 
     }
