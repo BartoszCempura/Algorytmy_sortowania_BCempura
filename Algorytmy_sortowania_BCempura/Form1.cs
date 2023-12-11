@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 
@@ -55,6 +56,8 @@ namespace Algorytmy_sortowania_BCempura
 
         private void button1_Click(object sender, EventArgs e)
         {
+            chart1.Series.Clear();
+
             List<ISort> selectedAlgorithms = new List<ISort>();
 
             if (checkedListBox1.GetItemChecked(0))
@@ -96,11 +99,27 @@ namespace Algorytmy_sortowania_BCempura
                 x.Sort(sortedArray);
                 stopwatch.Stop();
 
-                MessageBox.Show($"{x.GetType().Name} Zakończony." +
-                                $"\nWartość pierwsza to {sortedArray[0]}" +
-                                $"\nWartość ostatnia to {sortedArray[sortedArray.Length - 1]}" +
-                                $"\nCzas trwania: {stopwatch.Elapsed}");
+                //MessageBox.Show($"{x.GetType().Name} Zakończony." +
+                                //$"\nWartość pierwsza to {sortedArray[0]}" +
+                               //$"\nWartość ostatnia to {sortedArray[sortedArray.Length - 1]}" +
+                               // $"\nCzas trwania: {stopwatch.Elapsed}");
+
+                
+
+                AddDataPoint(chart1, x.GetType().Name, stopwatch.Elapsed.TotalMilliseconds);
+
             }
+
+            foreach (var series in chart1.Series)
+            {
+                foreach (var point in series.Points)
+                {
+                    point.Label = point.YValues[0].ToString(); 
+                    point.LabelForeColor = Color.Black; 
+                    point.LabelBackColor = Color.Transparent; 
+                }
+            }
+
         }
 
 
@@ -136,6 +155,23 @@ namespace Algorytmy_sortowania_BCempura
 
             array = generator2.GetArray();
             DisplayValues();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void AddDataPoint(Chart chart, string algorithmName, double elapsedTime)
+        {
+            
+            if (!chart.Series.Any(s => s.Name == algorithmName))
+            {
+                chart.Series.Add(new Series(algorithmName));
+                chart.Series[algorithmName].ChartType = SeriesChartType.Bar; 
+            }
+       
+           
+            chart.Series[algorithmName].Points.AddXY(algorithmName, elapsedTime);
         }
     }
 }

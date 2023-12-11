@@ -16,9 +16,9 @@ namespace Algorytmy_sortowania_BCempura
             int x = array.Length;
 
             //zakomentowane mamy optymalizacje dla algorytmu
-            //bool swapped;
+         //   bool swapped;
 
-           // do
+          //  do
 
            // {  swapped = false;
 
@@ -33,13 +33,13 @@ namespace Algorytmy_sortowania_BCempura
                         array[j] = array[j + 1];
                         array[j + 1] = tmp;
 
-                      //  swapped = true; 
+                       // swapped = true; 
                     }
 
                 }     
             
             
-           // } while (swapped);   
+            //} while (swapped);   
 
             
 
