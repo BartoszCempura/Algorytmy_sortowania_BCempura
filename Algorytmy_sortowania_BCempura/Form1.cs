@@ -99,11 +99,12 @@ namespace Algorytmy_sortowania_BCempura
                 x.Sort(sortedArray);
                 stopwatch.Stop();
 
-                //MessageBox.Show($"{x.GetType().Name} Zakończony." +
-                                //$"\nWartość pierwsza to {sortedArray[0]}" +
-                               //$"\nWartość ostatnia to {sortedArray[sortedArray.Length - 1]}" +
-                               // $"\nCzas trwania: {stopwatch.Elapsed}");
-
+                /*
+                MessageBox.Show($"{x.GetType().Name} Zakończony." +
+                                $"\nWartość pierwsza to {sortedArray[0]}" +
+                               $"\nWartość ostatnia to {sortedArray[sortedArray.Length - 1]}" +
+                                $"\nCzas trwania: {stopwatch.Elapsed}");
+                */
                 
 
                 AddDataPoint(chart1, x.GetType().Name, stopwatch.Elapsed.TotalMilliseconds);
@@ -114,7 +115,8 @@ namespace Algorytmy_sortowania_BCempura
             {
                 foreach (var point in series.Points)
                 {
-                    point.Label = point.YValues[0].ToString(); 
+                    point.Label = point.YValues[0].ToString()+" ms";
+                    point.Font= new Font(point.Font, FontStyle.Bold);
                     point.LabelForeColor = Color.Black; 
                     point.LabelBackColor = Color.Transparent; 
                 }

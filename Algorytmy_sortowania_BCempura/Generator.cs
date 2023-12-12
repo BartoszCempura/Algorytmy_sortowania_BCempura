@@ -37,12 +37,12 @@ namespace Algorytmy_sortowania_BCempura
         {
             Random ascending = new Random();
 
-            asc = ascending.Next(0, 20);
+            asc = ascending.Next(0, 5);
 
             for (int i = 0; i < size; ++i)
             {
                 array[i] = asc;
-                asc = ascending.Next(asc,asc+20);
+                asc = ascending.Next(asc,asc+5);
 
             }           
         }
@@ -60,19 +60,7 @@ namespace Algorytmy_sortowania_BCempura
 
             }
         }
-        /*
-        //kod generuje wartości od size i co jeden w dół, powyżej jest bardziej losowy
-        public void Descending() 
-        {
-            int max = size;
-
-            for (int i = 0; i < size; ++i)
-            {
-                array[i] = max;
-                max--;
-            }          
-        }
-*/
+ 
 
         public int[] GetArray()
         {
