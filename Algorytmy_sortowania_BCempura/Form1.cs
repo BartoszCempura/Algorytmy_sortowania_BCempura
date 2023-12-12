@@ -19,6 +19,7 @@ namespace Algorytmy_sortowania_BCempura
     {
 
         private int[] array;
+        int x;
 
 
         public Form1()
@@ -91,6 +92,8 @@ namespace Algorytmy_sortowania_BCempura
                 return;
             }
 
+            string filename = $"{x}";
+
             foreach (var x in selectedAlgorithms)
             {
                 int[] sortedArray = (int[])array.Clone();
@@ -98,17 +101,9 @@ namespace Algorytmy_sortowania_BCempura
                 stopwatch.Start();
                 x.Sort(sortedArray);
                 stopwatch.Stop();
-
-                /*
-                MessageBox.Show($"{x.GetType().Name} Zakończony." +
-                                $"\nWartość pierwsza to {sortedArray[0]}" +
-                               $"\nWartość ostatnia to {sortedArray[sortedArray.Length - 1]}" +
-                                $"\nCzas trwania: {stopwatch.Elapsed}");
-                */
                 
-
                 AddDataPoint(chart1, x.GetType().Name, stopwatch.Elapsed.TotalMilliseconds);
-
+                DataToTxt.SaveToFile(filename, x.GetType().Name, stopwatch.Elapsed.TotalMilliseconds, selectedAlgorithms.Count());
             }
 
             foreach (var series in chart1.Series)
@@ -132,7 +127,7 @@ namespace Algorytmy_sortowania_BCempura
 
         private void Generój_Click(object sender, EventArgs e)
         {
-            int x = (int)numericUpDown1.Value;
+            x = (int)numericUpDown1.Value;
             Generator generator = new Generator(x);
             generator.random();
 
@@ -175,5 +170,7 @@ namespace Algorytmy_sortowania_BCempura
            
             chart.Series[algorithmName].Points.AddXY(algorithmName, elapsedTime);
         }
+
+        
     }
 }
