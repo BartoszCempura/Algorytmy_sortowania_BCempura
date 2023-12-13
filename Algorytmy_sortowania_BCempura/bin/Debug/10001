@@ -1,0 +1,6 @@
+Czas sortowania dla ciągu 10001 elementowego
+
+BubbleSort - Czas trwania: 258,2791 ms
+SelectionSort - Czas trwania: 100,1304 ms
+InsertionSort - Czas trwania: 72,5192 ms
+--------------------------------------------------

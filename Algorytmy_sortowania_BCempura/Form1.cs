@@ -68,6 +68,8 @@ namespace Algorytmy_sortowania_BCempura
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+
            chart1.Series.Clear();
 
             List<ISort> selectedAlgorithms = new List<ISort>();
@@ -128,6 +130,7 @@ namespace Algorytmy_sortowania_BCempura
                 }
             }
 
+            Sortuj.Enabled = false;
         }
 
 
@@ -138,31 +141,49 @@ namespace Algorytmy_sortowania_BCempura
 
         private void Generój_Click(object sender, EventArgs e)
         {
+            Sortuj.Enabled = true;
+
             x = (int)numericUpDown1.Value;
             Generator generator = new Generator(x);
             generator.random();
 
             array = generator.GetArray();
-            DisplayValues();
+
+            textBox1.Text = $"Obliczenia dla ciągu o {x} elementach. Typ losowy. Kliknij Sortuj";
+            chart1.Series.Clear();
+            //  zakomentowane ze względu na znaczne zwolnienie działania aplikacji przy dużych ciągach. Może jednak ułatwić odbiór aplikacji ze względu na wgląd do zawartości tablicy
+            //  DisplayValues(); 
         }
 
         private void Ascending_Click(object sender, EventArgs e)
         {
+            Sortuj.Enabled = true;
+
             x = (int)numericUpDown1.Value;
             Generator generator1 = new Generator(x);
             generator1.Ascending();
 
             array = generator1.GetArray();
-            DisplayValues();
-        }    
+
+            textBox1.Text = $"Obliczenia dla ciągu o {x} elementach.Typ rosnący. Kliknij Sortuj";
+            chart1.Series.Clear();
+            //  zakomentowane ze względu na znaczne zwolnienie działania aplikacji przy dużych ciągach. Może jednak ułatwić odbiór aplikacji ze względu na wgląd do zawartości tablicy
+            //  DisplayValues();
+        }
         private void Descending_Click(object sender, EventArgs e)
         {
+            Sortuj.Enabled = true;
+
             x = (int)numericUpDown1.Value;
             Generator generator2 = new Generator(x);
             generator2.Descending();
 
             array = generator2.GetArray();
-            DisplayValues();
+
+            textBox1.Text = $"Obliczenia dla ciągu o {x} elementach. Typ malejący. Kliknij Sortuj";
+            chart1.Series.Clear();
+            //  zakomentowane ze względu na znaczne zwolnienie działania aplikacji przy dużych ciągach. Może jednak ułatwić odbiór aplikacji ze względu na wgląd do zawartości tablicy
+            //  DisplayValues();
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -182,6 +203,9 @@ namespace Algorytmy_sortowania_BCempura
             chart.Series[algorithmName].Points.AddXY(algorithmName, elapsedTime);
         }
 
-        
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+         
+        }
     }
 }
