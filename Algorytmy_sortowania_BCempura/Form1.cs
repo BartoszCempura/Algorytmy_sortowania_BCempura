@@ -46,8 +46,19 @@ namespace Algorytmy_sortowania_BCempura
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBox1.SelectedItem != null)
+            {
+               
+                string separator = " ";
+                string content = string.Join(separator, listBox1.Items.Cast<object>());
 
+                
+                Clipboard.SetText(content);
+            }
+
+            MessageBox.Show("Tekst został skopiowany do schowka.");
         }
+
 
         private void DisplayValues()
         {
@@ -57,7 +68,7 @@ namespace Algorytmy_sortowania_BCempura
 
         private void button1_Click(object sender, EventArgs e)
         {
-            chart1.Series.Clear();
+           chart1.Series.Clear();
 
             List<ISort> selectedAlgorithms = new List<ISort>();
 
@@ -100,7 +111,7 @@ namespace Algorytmy_sortowania_BCempura
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 x.Sort(sortedArray);
-                stopwatch.Stop();
+                stopwatch.Stop();               
                 
                 AddDataPoint(chart1, x.GetType().Name, stopwatch.Elapsed.TotalMilliseconds);
                 DataToTxt.SaveToFile(filename, x.GetType().Name, stopwatch.Elapsed.TotalMilliseconds, selectedAlgorithms.Count());
@@ -137,7 +148,7 @@ namespace Algorytmy_sortowania_BCempura
 
         private void Ascending_Click(object sender, EventArgs e)
         {
-            int x = (int)numericUpDown1.Value;
+            x = (int)numericUpDown1.Value;
             Generator generator1 = new Generator(x);
             generator1.Ascending();
 
@@ -146,7 +157,7 @@ namespace Algorytmy_sortowania_BCempura
         }    
         private void Descending_Click(object sender, EventArgs e)
         {
-            int x = (int)numericUpDown1.Value;
+            x = (int)numericUpDown1.Value;
             Generator generator2 = new Generator(x);
             generator2.Descending();
 
