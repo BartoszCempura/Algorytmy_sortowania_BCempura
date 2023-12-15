@@ -2,7 +2,6 @@ C:\Users\cempu\source\repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_B
 C:\Users\cempu\source\repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\bin\Debug\Algorytmy_sortowania_BCempura.exe
 C:\Users\cempu\source\repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\bin\Debug\Algorytmy_sortowania_BCempura.pdb
 C:\Users\cempu\source\repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\obj\Debug\Algorytmy_sortowania_BCempura.csproj.AssemblyReference.cache
-C:\Users\cempu\source\repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\obj\Debug\Algorytmy_sortowania_BCempura.Form1.resources
 C:\Users\cempu\source\repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\obj\Debug\Algorytmy_sortowania_BCempura.Properties.Resources.resources
 C:\Users\cempu\source\repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\obj\Debug\Algorytmy_sortowania_BCempura.csproj.GenerateResource.cache
 C:\Users\cempu\source\repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\obj\Debug\Algorytmy_sortowania_BCempura.csproj.CoreCompileInputs.cache
@@ -48,3 +47,4 @@ C:\Users\23783\Source\Repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_B
 C:\Users\23783\Source\Repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\obj\Debug\Algorytmy_sortowania_BCempura.csproj.CoreCompileInputs.cache
 C:\Users\23783\Source\Repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\obj\Debug\Algorytmy_sortowania_BCempura.exe
 C:\Users\23783\Source\Repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\obj\Debug\Algorytmy_sortowania_BCempura.pdb
+C:\Users\cempu\Source\Repos\Algorytmy_sortowania_BCempura\Algorytmy_sortowania_BCempura\obj\Debug\Algorytmy_sortowania_BCempura.Algorytmy_sortowania_BCempura.resources

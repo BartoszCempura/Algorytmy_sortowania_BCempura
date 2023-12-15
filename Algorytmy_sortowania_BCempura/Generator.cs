@@ -16,11 +16,14 @@ namespace Algorytmy_sortowania_BCempura
             private int asc = 0;
             private int dsc = 0;
 
+     
+
             public Generator(int x)
-            {
+            {     
                 this.size = x;
                 array = new int[size];
             }
+  
 
             public void random()
         {

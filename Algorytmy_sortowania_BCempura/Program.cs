@@ -16,7 +16,7 @@ namespace Algorytmy_sortowania_BCempura
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Algorytmy_sortowania_BCempura());
 
 
         }

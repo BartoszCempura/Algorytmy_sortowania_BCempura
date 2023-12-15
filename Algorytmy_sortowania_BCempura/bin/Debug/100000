@@ -1,0 +1,20 @@
+Czas sortowania dla ciągu 100000 elementowego
+
+BubbleSort - Czas trwania: 27440,7713 ms
+SelectionSort - Czas trwania: 10631,6811 ms
+QuickSort - Czas trwania: 12,2393 ms
+InsertionSort - Czas trwania: 6890,6978 ms
+MergeSort - Czas trwania: 20,7527 ms
+--------------------------------------------------
+BubbleSort - Czas trwania: 27439,2156 ms
+SelectionSort - Czas trwania: 10654,1952 ms
+QuickSort - Czas trwania: 11,4455 ms
+InsertionSort - Czas trwania: 6911,8269 ms
+MergeSort - Czas trwania: 19,9056 ms
+--------------------------------------------------
+BubbleSort - Czas trwania: 27259,9671 ms
+SelectionSort - Czas trwania: 10572,3878 ms
+QuickSort - Czas trwania: 11,3709 ms
+InsertionSort - Czas trwania: 6812,5584 ms
+MergeSort - Czas trwania: 20,7828 ms
+--------------------------------------------------
